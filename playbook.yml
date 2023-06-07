@@ -1,4 +1,4 @@
-alkfngjkadnfbkgsdhfklgjndskl;fbhsduk;vbnkl;sdjfhbdisojvkjnbs---
+---
 
 - hosts: nginx
   become: true
