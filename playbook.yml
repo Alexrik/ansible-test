@@ -1,0 +1,11 @@
+---
+
+- hosts: nginx
+  become: true
+  become_user: user
+  gather_facts: true
+  pre_tasks:
+    - debug:
+        msg: '{{ ansible_facts }}'
+  roles:
+    - { name: nginx, tags: nginx }

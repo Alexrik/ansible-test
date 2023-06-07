@@ -1,0 +1,10 @@
+---
+
+all:
+  children:
+    nginx:
+      hosts:
+        web.home:
+      vars:
+        ansible_ssh_user: user
+        ansible_python_interpreter: python3

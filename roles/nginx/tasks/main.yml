@@ -1,0 +1,25 @@
+---
+# tasks file for nginx
+
+- name: install nginx
+  package:
+    name: '{{ item }}'
+    state: latest
+  with_items:
+    - '{{ nginx_packages }}'
+
+- name: nginx service enable
+  service:
+    name: nginx
+    state: started
+
+- name: clear default www folder
+  file:
+    path: '{{ nginx_www_path }}/index.nginx-debian.html'
+    state: absent
+
+- name: config index.html
+  template:
+    src: index.html.j2
+    dest: '{{ nginx_www_path }}/index.html'
+  tags: update_html
